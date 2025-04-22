@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados ICFES - UTS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f3f4f6; /* Light gray background */
+            min-height: 100vh;
+            padding: 30px 15px;
+            color: #1e3a8a; /* Dark blue text */
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6); /* Blue gradient */
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            padding: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2); /* Blue shadow */
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        /* Títulos */
+        .content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content h1 {
+            font-size: 34px;
+            color: #1e40af; /* Darker blue */
+            margin-bottom: 12px;
+        }
+
+        .content h2 {
+            font-size: 18px;
+            color: #475569; /* Medium gray */
+            font-weight: 500;
+        }
+
+        /* Contenedor de selección */
+        .selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            background-color: #ffffff; /* White background */
+            padding: 32px;
+            border-radius: 16px;
+            max-width: 720px;
+            width: 100%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0; /* Light gray border */
+        }
+
+        /* Opciones */
+        .option {
+            text-decoration: none;
+            background-color: #dbeafe; /* Light blue */
+            color: #1d4ed8; /* Blue */
+            padding: 22px 18px;
+            border-radius: 12px;
+            width: 160px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(59, 130, 246, 0.1);
+        }
+
+        .option:hover {
+            background-color: #bfdbfe; /* Slightly darker light blue */
+            transform: translateY(-5px);
+            color: #1e40af; /* Darker blue */
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            background-color: #1e40af; /* Dark blue */
+            color: #ffffff; /* White text */
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 720px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .selection {
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px;
+            }
+
+            .option {
+                width: 100%;
+                font-size: 17px;
+            }
+
+            .banner {
+                font-size: 28px;
+                padding: 20px 0;
+            }
+
+            .content h1 {
+                font-size: 28px;
+            }
+
+            .content h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="banner">
+        SABER PRO - UTS
+    </div>
+    <div class="content">
+        <h1>RESULTADOS ICFES</h1>
+        <h2>ELIGE CÓMO INGRESAR</h2>
+    </div>
+    <div class="selection">
+        <a class="option" th:href="@{/coordinador/}">Coordinadores</a>
+        <a class="option" th:href="@{/estudiante/}">Estudiantes</a>
+    </div>
+    <footer>
+        <p>©2024 Unidades Tecnológicas de Santander. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

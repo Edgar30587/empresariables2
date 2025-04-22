@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de Asignaturas</title>
+	<link rel="icon" href="/assets/img/leon.png" />
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <style>
+        /* General Resets */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-container a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(128, 0, 255); /* Indigo */
+        }
+
+        /* Main Section */
+        .promedio-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Individual Card */
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            flex: 1 0 30%; /* 3 cards per row, adjust as needed */
+            min-width: 250px; /* Minimum width for cards */
+        }
+
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .card-row strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-row span {
+            color: #666;
+        }
+
+        /* Button for logging out */
+        .btn-salir-prom {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6A5ACD; /* Slate Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .btn-salir-prom:hover {
+            background-color: #483D8B; /* Dark Slate Blue */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header content (if needed) -->
+    </header>
+    <nav>
+        <div class="nav-container">
+            <a href="#">¡Promedio nacional!</a>
+        </div>
+    </nav>
+    <hr class="div-area">
+    <div class="promedio-container">
+        <h1>Promedios de Estudiantes</h1>
+        <div class="cards-container">
+            <div class="card" th:each="estudiante : ${estudiantes}" th:orderby="${estudiante.promedio} desc">
+                <div class="card-row">
+                    <strong>Nombre:</strong> <span th:text="${estudiante.nombre}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Puntaje Promedio:</strong> <span th:text="${estudiante.promedio}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Comunicación Escrita:</strong> <span th:text="${estudiante.promedioCE}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Razonamiento Cuantitativo:</strong> <span th:text="${estudiante.promedioRC}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Lectura Crítica:</strong> <span th:text="${estudiante.promedioLC}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Competencias Ciudadanas:</strong> <span th:text="${estudiante.promedioCC}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Inglés:</strong> <span th:text="${estudiante.promedioEN}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Formulación de Proyectos de Ingeniería:</strong> <span th:text="${estudiante.promedioFPI}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Pensamiento Científico y Matemática Estadística:</strong> <span th:text="${estudiante.promedioPCME}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Diseño de Software:</strong> <span th:text="${estudiante.promedioDS}"></span>
+                </div>
+            </div>
+        </div>
+        <a th:href="@{/estudiante/}" class="btn-salir-prom">Cerrar sesión</a>
+    </div>
+</body>
+</html>

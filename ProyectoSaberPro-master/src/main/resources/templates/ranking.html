@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking de Estudiantes</title>
+    <style>
+        /* Reset y tipografía base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #cfc9c9; /* Gris claro */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Título principal */
+        h1 {
+            color: #1e3a8a; /* Azul oscuro */
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo general de la tabla */
+        table {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3b82f6; /* Azul vivo */
+            color: #fff;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1f5f9; /* Azul muy claro / gris claro */
+        }
+
+        tr:hover {
+            background-color: #e0f2fe; /* Azul claro al pasar el mouse */
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        /* Botón de regresar */
+        .btn-salir {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 28px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #1e40af; /* Azul profundo */
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-salir:hover {
+            background-color: #2563eb; /* Azul brillante al pasar el mouse */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                padding: 12px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Ranking de Estudiantes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Puesto</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudiante, iterStat : ${estudiantes}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${estudiante.primer_nombre}"></td> <!-- Ajusta al nombre exacto de la propiedad -->
+                <td th:text="${estudiante.apellidos}"></td> <!-- Ajusta al nombre exacto de la propiedad -->
+                <td th:text="${estudiante.promedio}"></td> <!-- Asegúrate de que esta propiedad exista y esté calculada -->
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/estudiante/}" class="btn-salir">Regresar</a>
+
+</body>
+</html>

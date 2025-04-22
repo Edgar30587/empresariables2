@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/assets/img/leon.png" />>
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <title>Icfes - Saber PRO</title>
+</head>
+
+<body>
+    <header>
+        
+        
+    </header>
+    <nav>
+		
+       <div class="nav-container">
+		
+				<a th:href="@{/}">Inicio</a>
+
+         <!--   
+			<a th:href="@{/coordinador/}">Coordinadores</a>
+			<a th:href="@{/estudiante/}">Estudiantes</a>
+        </div>-->
+    </nav>
+    <hr>
+    <main>
+        <div class="img-icfes">
+            <img src="/assets/img/icfes-logo.png" alt="">
+        </div>
+		<div class="container-form">
+		    <h2>Estudiante</h2>
+		    <form th:action="@{/estudiante/login}" method="post">
+				<p th:if="${mensaje}" style="color: red;">Error, contraseña o cédula incorrectas</p>
+		        <input type="text" name="registro" placeholder="Ingresa tu cedula del estudia">
+		        <input type="password" name="contrasena" placeholder="Ingresa tu contraseña">
+				<input type="submit" value="Iniciar sesión">
+		    </form>
+		</div>
+    </main>
+</body>
+
+</html>

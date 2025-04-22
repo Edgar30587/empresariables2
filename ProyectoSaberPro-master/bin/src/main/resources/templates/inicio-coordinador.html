@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/img/leon.png" />
+    <title>Inicio - Icfes-coordinador</title>
+    <style>
+        /* General Resets */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-container a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(128, 0, 255); /* Indigo */
+        }
+
+        /* Main Section */
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #4B0082; /* Indigo */
+        }
+
+        /* Cards Container */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Individual Card */
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            flex: 1 0 30%; /* 3 cards per row, adjust as needed */
+            min-width: 250px; /* Minimum width for cards */
+        }
+
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .card-row strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-row span {
+            color: #666;
+        }
+
+        /* Edit and Delete buttons */
+        .edit-btn, .delete-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6A5ACD; /* Slate Blue */
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-right: 5px; /* Spacing between buttons */
+        }
+
+        .edit-btn:hover, .delete-btn:hover {
+            background-color: #483D8B; /* Dark Slate Blue */
+        }
+
+        /* Button for adding a student */
+        .btn-salir {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #6A5ACD; /* Slate Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .btn-salir:hover {
+            background-color: #483D8B; /* Dark Slate Blue */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Header content (if needed) -->
+    </header>
+    <nav>
+        <div class="nav-container">
+            <a href="#">¡Bienvenido coordinador!</a>
+        </div>
+    </nav>
+    <hr>
+    <main class="table-container">
+        <h1>Estudiantes Clasificados SABER PRO</h1>
+        <br>
+        <div class="cards-container">
+            <div class="card" th:each="estudiante : ${estudiante}">
+                <div class="card-row">
+                    <strong>Tipo Documento:</strong> <span>CC</span>
+                </div>
+                <div class="card-row">
+                    <strong># Documento:</strong> <span th:text="${estudiante.cedula}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>1° nombre:</strong> <span th:text="${estudiante.primer_nombre}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>2° nombre:</strong> <span th:text="${estudiante.segundo_nombre}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Apellidos:</strong> <span th:text="${estudiante.apellidos}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Email:</strong> <span th:text="${estudiante.email}"></span>
+                </div>
+                <div class="card-row">
+                    <strong># Telefono:</strong> <span th:text="${estudiante.telefono}"></span>
+                </div>
+                <div class="card-row">
+                    <strong># Registro:</strong> <span th:text="${estudiante.registro}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Puntaje:</strong> <span th:text="${estudiante.puntaje}"></span>
+                </div>
+                <div class="card-row">
+                    <strong>Saber Pro Nivel:</strong> <span th:text="${estudiante.nivel_puntaje}"></span>
+                </div>
+                <div class="card-row">
+                    <a th:href="@{'/coordinador/editar/' + ${estudiante.registro}}" class="edit-btn">Editar</a>
+                    <a th:href="@{'/coordinador/borrar/' + ${estudiante.registro}}" class="delete-btn">Borrar</a>
+                </div>
+            </div>
+        </div>
+        <a href="/coordinador/agregar" class="btn-salir">Agregar Estudiante</a>
+        <a th:href="@{/coordinador/}" class="btn-salir">Regresar</a>
+    </main>
+</body>
+
+</html>

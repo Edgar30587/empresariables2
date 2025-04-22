@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking de Estudiantes</title>
+	<link rel="icon" href="/assets/img/leon.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Fuente Poppins para coherencia */
+            background-color: #f5f0ff; /* Color de fondo claro */
+            text-align: center;
+            color: #333;
+        }
+
+        /* Título */
+        h1 {
+            margin: 20px 0;
+            color: #483d8b; /* Color del encabezado */
+            font-size: 2.5em;
+        }
+
+        /* Estilos de la tabla */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse; /* Colapso de bordes */
+            border-radius: 10px; /* Bordes redondeados para la tabla */
+            overflow: hidden; /* Esconde los bordes de la tabla */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #6a5acd; /* Fondo de encabezado morado */
+            color: #fff; /* Color blanco para texto de encabezado */
+        }
+
+        tr:nth-child(even) {
+            background-color: #e6e6fa; /* Color de fondo para filas pares */
+        }
+
+        tr:hover {
+            background-color: #d8bfd8; /* Color de fondo al pasar el mouse */
+        }
+
+        /* Estilos del botón */
+        .btn-salir {
+            display: inline-block;
+            margin-top: 20px; /* Espacio encima del botón */
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #fff;
+            background-color: #483d8b; /* Color del fondo del botón */
+            border: none;
+            border-radius: 8px; /* Bordes redondeados para el botón */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+
+        .btn-salir:hover {
+            background-color: #6a5acd; /* Color al pasar el mouse */
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Ajuste del tamaño de fuente en dispositivos más pequeños */
+            }
+
+            table {
+                width: 90%; /* Ajuste del ancho de la tabla */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ranking de Estudiantes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Puesto</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="estudiante, iterStat : ${estudiantes}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${estudiante.primer_nombre}"></td> <!-- Ajusta al nombre exacto de la propiedad -->
+                <td th:text="${estudiante.apellidos}"></td> <!-- Ajusta al nombre exacto de la propiedad -->
+                <td th:text="${estudiante.promedio}"></td> <!-- Asegúrate de que esta propiedad exista y esté calculada -->
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/estudiante/}" class="btn-salir">Regresar</a>
+
+</body>
+</html>

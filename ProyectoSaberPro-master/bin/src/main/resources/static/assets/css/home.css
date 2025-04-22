@@ -1,0 +1,423 @@
+/* General Resets */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: rgb(128, 0, 255); /* Indigo */
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.banner-img {
+    width: 150px;
+    height: auto;
+}
+
+.contenedor-busqueda {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    border-radius: 5px;
+}
+
+#busqueda {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #6A5ACD; /* Slate Blue */
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #483D8B; /* Dark Slate Blue */
+}
+
+/* Navigation */
+nav {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 150px;
+    height: auto;
+    margin-right: auto;
+}
+
+.nav-container a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(128, 0, 255); /* Indigo */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-container a:hover {
+    color: rgb(106, 90, 205); /* Slate Blue */
+    transform: scale(1.05);
+}
+
+/* Main Section */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.img-icfes {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-icfes img {
+    width: 200px;
+    height: auto;
+    margin: 20px;
+}
+
+.container-form {
+    flex: 2;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.container-form h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #4B0082; 
+}
+
+.container-form p {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.container-form input[type="text"],
+.container-form input[type="password"] {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.container-form input[type="submit"] {
+    width: 80%;
+    padding: 12px;
+    background-color: #6A5ACD; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container-form input[type="submit"]:hover {
+    background-color: #483D8B;
+}
+/* Registro Form */
+.form-registro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:url('https://i0.wp.com/www.eccole.co/wp-content/uploads/2017/10/daniel-mccullough-348488-scaled.jpg?fit=2560%2C1440&ssl=1');
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-registro form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-registro label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-registro input[type="text"],
+.form-registro input[type="number"],
+.form-registro input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-registro input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #6A5ACD; /* Slate Blue */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-registro input[type="submit"]:hover {
+    background-color: #483D8B; /* Dark Slate Blue */
+}
+
+/* Coordinadores Table 
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #4B0082; /* Indigo 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+td a {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #6A5ACD; /* Slate Blue 
+    border-radius: 5px;
+    background-color: #6A5ACD; /* Slate Blue 
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+td a:hover {
+    background-color: #483D8B; /* Dark Slate Blue 
+}
+*/
+/* Estudiantes Section */
+.btn-salir {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6A5ACD; /* Slate Blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 20px;
+}
+
+.btn-salir:hover {
+    background-color: #483D8B; /* Dark Slate Blue */
+}
+
+.card.results {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.result-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.personal-info,
+.test-results,
+.level-results {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.level-results {
+    border-right: none;
+}
+
+.result-info p {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.result-info p strong {
+    display: block;
+    width: 150px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card.results:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.card.results:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+/* Registro de Estudiantes */
+.form-student-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-estudiante {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-form {
+    margin-bottom: 15px;
+}
+
+.input-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-form input[type="text"],
+.input-form input[type="password"],
+.input-form input[type="email"],
+.input-form input[type="tel"],
+.input-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #6A5ACD; /* Slate Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #483D8B; /* Dark Slate Blue */
+}
+
+/* Promedio Panel */
+.div-area {
+    margin-bottom: 70px;
+}
+
+.promedio-container {
+    font-size: 14px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.promedio-container p {
+    margin-bottom: 10px;
+}
+
+.promedio-container span {
+    font-weight: bold;
+    color: #6A5ACD; /* Slate Blue */
+}
+
+.btn-salir-prom {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6A5ACD; /* Slate Blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-salir-prom:hover {
+    background-color: #483D8B; /* Dark Slate Blue */
+}
